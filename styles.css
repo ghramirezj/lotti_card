@@ -1,0 +1,359 @@
+/* ========== VARIABLES CSS ========== */
+:root {
+  --color-primary: #ff6b9d;
+  --color-secondary: #c44569;
+  --color-accent: #ffa07a;
+  --color-light: #ffe5ec;
+  --color-purple: #9d84b7;
+  --color-yellow: #ffd93d;
+  --color-white: #ffffff;
+  --color-text: #2c3e50;
+  --font-title: 'Chewy', cursive;
+  --font-body: 'Quicksand', sans-serif;
+  --shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== BASE ========== */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: linear-gradient(
+    135deg,
+    var(--color-light) 0%,
+    #fff0f5 100%
+  );
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.invitation-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--color-white);
+  box-shadow: var(--shadow);
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ========== SECCIÓN HEADER ========== */
+.header-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  padding: 1em;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoración con formas */
+.header-section::before,
+.header-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s infinite ease-in-out;
+}
+
+.header-section::before {
+  width: 150px;
+  height: 150px;
+  top: -50px;
+  left: -30px;
+}
+
+.header-section::after {
+  width: 100px;
+  height: 100px;
+  bottom: -30px;
+  right: -20px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.birthday-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--color-white);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.header-text {
+  font-size: 1.2rem;
+  color: var(--color-white);
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== SECCIÓN IMAGEN ========== */
+.image-section {
+  padding: 30px 20px;
+  text-align: center;
+  background: var(--color-white);
+}
+
+.birthday-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 0 auto 25px;
+  transition: var(--transition);
+  background: linear-gradient(
+    135deg,
+    var(--color-light) 0%,
+    #ffe0e9 100%
+  );
+  display: block;
+  animation: shake 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%,
+  90%,
+  100% {
+    transform: translateX(0);
+  }
+  92% {
+    transform: translateX(-8px);
+  }
+  94% {
+    transform: translateX(8px);
+  }
+  96% {
+    transform: translateX(-5px);
+  }
+  98% {
+    transform: translateX(5px);
+  }
+}
+
+/* Si es una imagen real */
+/* .birthday-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  display: block;
+} */
+
+/* Si son emojis o texto */
+/* .birthday-image:not(:has(img)) {
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+} */
+
+.birthday-image:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Ajustes para tablets y desktop */
+@media (min-width: 768px) {
+  .birthday-image {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .birthday-image {
+    max-width: 450px;
+  }
+}
+
+.image-text {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ========== DIVISOR ONDULADO ========== */
+.wave-divider {
+  width: 100%;
+  height: 40px;
+  /* background: linear-gradient(
+    135deg,
+    var(--color-purple) 0%,
+    var(--color-primary) 100%
+  ); */
+  background-color: #d35b83;
+  position: relative;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+/* Divisor inferior - onda del degradado sobre fondo blanco */
+.wave-divider-bottom {
+  background: var(--color-white);
+}
+
+.wave-divider-bottom svg {
+  top: 0;
+}
+
+/* ========== SECCIÓN UBICACIÓN ========== */
+.location-section {
+  /* background: linear-gradient(
+    135deg,
+    var(--color-purple) 0%,
+    var(--color-primary) 100%
+  ); */
+  background-color: #d35b83;
+  padding: 40px 20px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.location-title {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+
+.location-address {
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* ========== BOTONES ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-maps {
+  background: var(--color-yellow);
+  color: var(--color-text);
+}
+
+.btn-maps:hover {
+  background: #ffc107;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 217, 61, 0.4);
+}
+
+/* ========== SECCIÓN WHATSAPP ========== */
+.whatsapp-section {
+  background: var(--color-white);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.whatsapp-title {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: var(--color-white);
+}
+
+.btn-whatsapp:hover {
+  background: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* ========== ICONOS ========== */
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 768px) {
+  .invitation-container {
+    margin: 20px auto;
+  }
+
+  .birthday-title {
+    font-size: 3rem;
+  }
+
+  .header-text,
+  .location-address {
+    font-size: 1.2rem;
+  }
+
+  .location-title,
+  .whatsapp-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invitation-container {
+    max-width: 600px;
+  }
+}
