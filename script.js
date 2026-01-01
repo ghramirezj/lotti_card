@@ -4,7 +4,7 @@ const CONFIG = {
     url: 'https://maps.app.goo.gl/wFr2g9bg7nPz3uSV6',
   },
   whatsapp: {
-    phone: '5491176188211', // Reemplazar con el número real (código país + área + número)
+    phone: '5491122571534', // Reemplazar con el número real (código país + área + número)
     message: '¡Hola! Confirmo mi asistencia al cumpleaños de Lotti',
   },
 };
