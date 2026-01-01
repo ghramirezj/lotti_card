@@ -143,46 +143,32 @@ body {
     #ffe0e9 100%
   );
   display: block;
-  animation: shake 2s ease-in-out infinite;
+  animation: gentle-seesaw 3s ease-in-out infinite;
+  transform-origin: center;
 }
 
-@keyframes shake {
-  0%,
-  90%,
+@keyframes gentle-seesaw {
+  0% {
+    /* Comienza en el centro */
+    transform: rotate(0deg);
+  }
+  25% {
+    /* Se inclina hacia la izquierda (tenue) */
+    transform: rotate(-4deg);
+  }
+  50% {
+    /* Vuelve al centro */
+    transform: rotate(0deg);
+  }
+  75% {
+    /* Se inclina hacia la derecha (tenue) */
+    transform: rotate(4deg);
+  }
   100% {
-    transform: translateX(0);
-  }
-  92% {
-    transform: translateX(-8px);
-  }
-  94% {
-    transform: translateX(8px);
-  }
-  96% {
-    transform: translateX(-5px);
-  }
-  98% {
-    transform: translateX(5px);
+    /* Termina el ciclo en el centro */
+    transform: rotate(0deg);
   }
 }
-
-/* Si es una imagen real */
-/* .birthday-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 20px;
-  display: block;
-} */
-
-/* Si son emojis o texto */
-/* .birthday-image:not(:has(img)) {
-  aspect-ratio: 4/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-} */
 
 .birthday-image:hover {
   transform: scale(1.05) rotate(2deg);
